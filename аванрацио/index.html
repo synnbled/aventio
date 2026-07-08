@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авантюрин | Официальное досье КММ</title>
+    <style>
+        /* --- СТИЛИ В ДУХЕ HONKAI: STAR RAIL (КММ & ПЕНАКОНИЯ) --- */
+        :root {
+            --bg-dark: #0a0e14;
+            --bg-card: #121824;
+            --gold-primary: #d4b373;
+            --gold-hover: #fff3d1;
+            --teal-accent: #00ffcc;
+            --aventurine-green: #1a4d43;
+            --text-light: #eaeff5;
+            --text-muted: #8fa0b5;
+            --border-color: rgba(212, 179, 115, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(26, 77, 67, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(20, 30, 45, 0.6) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        /* Линии КММ на фоне */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(212, 179, 115, 0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(212, 179, 115, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- ХЕДЕР И НАВИГАЦИЯ --- */
+        header {
+            background: rgba(10, 14, 20, 0.85);
+            border-bottom: 2px solid var(--gold-primary);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 12px;
+            height: 12px;
+            background: var(--teal-accent);
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px var(--teal-accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-btn:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-btn.active {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            background: rgba(212, 179, 115, 0.05);
+            font-weight: bold;
+        }
+
+        .nav-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 50%; transform: translateX(-50%);
+            width: 40%; height: 2px;
+            background: var(--teal-accent);
+            box-shadow: 0 0 8px var(--teal-accent);
+        }
+
+        /* --- ГЛАВНЫЙ КОНТЕНТ --- */
+        main {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            min-height: calc(100vh - 250px);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- СТИЛИЗАЦИЯ СТРАНИЦ И ТЕКСТА --- */
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--teal-accent);
+            padding-left: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin: 2rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '◆';
+            color: var(--teal-accent);
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Компоненты оформления КММ / Пенаконии */
+        .intro-lead {
+            font-size: 1.2rem;
+            border: 1px solid var(--border-color);
+            background: rgba(18, 24, 36, 0.7);
+            padding: 1.5rem;
+            border-radius: 4px;
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        .intro-lead::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--gold-primary);
+        }
+
+        .quote-block {
+            background: rgba(26, 77, 67, 0.15);
+            border: 1px dashed var(--gold-primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+            border-radius: 4px;
+        }
+        .quote-block p {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: var(--gold-hover);
+        }
+        .quote-author {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .archive-box {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+        }
+        .archive-title {
+            color: var(--teal-accent);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+            padding-bottom: 5px;
+        }
+        .archive-line {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, rgba(18,24,36,1) 0%, rgba(10,40,35,0.4) 100%);
+            border: 1px solid var(--border-color);
+            border-top: 3px solid var(--teal-accent);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 0 8px 8px;
+        }
+        .detail-badge {
+            display: inline-block;
+            background: var(--teal-accent);
+            color: var(--bg-dark);
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Декоративная фишка/карта */
+        .card-decorator {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .chip {
+            width: 60px;
+            height: 60px;
+            border: 4px dashed var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-weight: bold;
+            font-size: 1.4rem;
+            box-shadow: 0 0 15px rgba(212, 179, 115, 0.2);
+            animation: rotateChip 20s linear infinite;
+        }
+        @keyframes rotateChip {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- ФУТЕР --- */
+        footer {
+            border-top: 1px solid rgba(212, 179, 115, 0.1);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+            background: rgba(7, 10, 15, 0.9);
+        }
+        .footer-decor {
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА САЙТА И НАВИГАЦИЯ -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                IPC • AVENTURINE
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchPage('page1', this)">Сводка и Истоки</button>
+                <button class="nav-btn" onclick="switchPage('page2', this)">Служба в КММ и Рацио</button>
+                <button class="nav-btn" onclick="switchPage('page3', this)">Небытие и Финал</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ (3 СТРАНИЦЫ) -->
+    <main>
+
+        <!-- СТРАНИЦА 1: ВВЕДЕНИЕ И ИСТОКИ -->
+        <section id="page1" class="page active">
+            <h1>Личное дело: Авантюрин</h1>
+            
+            <div class="intro-lead">
+                Авантюрин из Honkai: Star Rail — не просто топ-менеджер КММ (Корпорации Межзвездного Мира) и один из Десяти Каменных Сердец. Он — человек, который превратил собственную жизнь в бесконечную игру в рулетку, где на кону всегда стоит его голова.
+            </div>
+
+            <p>Ниже представлена развернутая история Авантюрина, оформленная в архивном, драматическом стиле Пенаконии и КММ, с деталями его сложного союза с Доктором Рацио.</p>
+
+            <div class="card-decorator"><div class="chip">A</div></div>
+
+            <h2>Часть 1: Рожденный в бурю (Какавача из Сигонии-IV)</h2>
+            <p>История Авантюрина начинается вовсе не в блеске золота КММ, а в мертвых, иссушенных пустынях планеты Сигония-IV. Там, среди вечной засухи и межплеменных войн, родился мальчик из племени авджинов, получивший имя Какавача.</p>
+
+            <div class="quote-block">
+                <p>«В день, когда ты родился, благословенный дождь пролился на Сигонию. Боги улыбнулись тебе, Какавача. Твоя удача — это твое величайшее благословение и твое самое тяжелое проклятие».</p>
+                <div class="quote-author">— Слова сестры Какавачи</div>
+            </div>
+
+            <p>Авджины славились своими удивительными, переливающимися глазами, которые чужаки считали признаком коварства, и феноменальным везением. Но удача Какавачи была особенной. Она не спасала его близких — она лишь оставляла его в живых, когда все остальные гибли. Его отец погиб в песчаной буре, мать забрала пустыня, а во время жестокой резни, устроенной враждебным племенем катика, Какавача потерял свою старшую сестру, которая пожертвовала собой, чтобы дать ему шанс сбежать.</p>
+            <p>Какавача выжил. Он остался последним авджином во всей Вселенной. Но платой за выживание стало рабство. Ему выжгли на шее позорное клеймо, лишили имени и заставили участвовать в гладиаторских боях. На арене он понял одну простую истину: жизнь — это казино, а чтобы выиграть у казино, нужно поставить на кон саму жизнь.</p>
+        </section>
+
+        <!-- СТРАНИЦА 2: КММ И ДОКТОР РАЦИО -->
+        <section id="page2" class="page">
+            <h1>Становление Сердца и Союзники</h1>
+            
+            <h2>Часть 2: Смертник, ставший Камнем (Рождение Авантюрина)</h2>
+            <p>Какавача совершил невозможное — он спланировал и осуществил побег, который стоил жизни его хозяину. Но вместо свободы он попал в руки Корпорации Межзвездного Мира. За свои преступления и финансовые махинации, которые он успел провернуть во время побега, бывший раб предстал перед судом КММ. Ему грозил смертный казнь.</p>
+            <p>Именно тогда на него обратила внимание Яшма, одна из Десяти Каменных Сердец. Какавача предложил ей сделку. Он не просил пощады, он предложил КММ свою удачу как главный актив.</p>
+
+            <div class="archive-box">
+                <div class="archive-title">[Архив КММ: Протокол назначения]</div>
+                <div class="archive-line"><strong>Статус:</strong> Заключенный № 35-920 -> Повышение до Десяти Каменных Сердец.</div>
+                <div class="archive-line"><strong>Кодовое имя:</strong> Авантюрин.</div>
+                <div class="archive-line"><strong>Камень-основа:</strong> Авантюрин хитрости.</div>
+                <div class="archive-line"><strong>Девиз:</strong> «Все или ничего».</div>
+            </div>
+
+            <p>Приняв опорный камень от Алмаза, Какавача навсегда умер. Появился Авантюрин — блестящий, циничный, безупречно одетый стратег КММ. Он стал специалистом по «невыполнимым миссиям», возвращая Корпорации целые планеты через безумные, на грани фола, дипломатические и финансовые ставки. Он окружил себя роскошью, дорогими тканями, ароматом элитного парфюма и вечной фальшивой улыбкой, за которой скрывался все тот же испуганный сигонийский мальчик, искренне презирающий собственную жизнь.</p>
+
+            <h2>Часть 3: Золотая клетка Пенаконии и Ученый Эксцентрик</h2>
+            <p>Когда КММ решила вернуть свой бывший актив — планету празднеств Пенаконию, Авантюрин был отправлен туда в качестве авангарда. Это была смертельно опасная игра против Семьи, где каждый шаг мог стать последним.</p>
+            <p>Для этой миссии Корпорация выделила ему временного напарника — Доктора Рацио (Веритаса Рацио) из Гильдии Эрудитов. На первый взгляд, они были абсолютными противоположностями. Рацио — строгий, логичный, презирающий глупость ученый, который верил только в холодные факты. Авантюрин — хаотичный игрок, полагающийся на интуицию и слепую удачу.</p>
+            <p>Иих диалоги на Пенаконии походили на интеллектуальный танец на минном поле. Рацио открыто называл Авантюрина «азартным безумцем», а Авантюрин в ответ лишь двусмысленно улыбался, поправляя очки.</p>
+
+            <div class="detail-card">
+                <div class="detail-badge">Едва заметная деталь</div>
+                <p>Все считали их союз чисто деловым, замешанным на взаимном раздражении. Однако те, кто внимательно изучал отчеты КММ, замечали странную закономерность. Авантюрин, славившийся тем, что никогда и никому не доверял (ведь в его мире предают все), позволял Рацио подходить к себе ближе, чем кому-либо.</p>
+                <p>Перед началом финального этапа игры, когда Рацио публично «предал» Авантюрина Семье (что на самом деле было частью их скрытого плана), Доктор передал ему запечатанную записку с медицинским рецептом. На оборотной стороне, написанной идеальным каллиграфическим почерком Веритаса, значилось: <em>«Не умри до того, как я докажу твою неправоту»</em>. Авантюрин сохранил эту записку во внутреннем кармане пиджака, прямо у сердца. Его обычная маска фальшивого дружелюбия на мгновение спала, уступив место настоящей, мягкой улыбке, которую не видел ни один клиент КММ. Рацио, в свою очередь, вопреки своей привычке не тратить время на «безнадежных дураков», оставался на Пенаконии исключительно ради того, чтобы лично вытащить этого конкретного «дурака» с того света.</p>
+            </div>
+        </section>
+
+        <!-- СТРАНИЦА 3: НЕБЫТИЕ И ФИНАЛ -->
+        <section id="page3" class="page">
+            <h1>За кулисами Сна</h1>
+            
+            <h2>Часть 4: По ту сторону небытия</h2>
+            <p>План Авантюрина на Пенаконии был грандиозен и ужасающе прост: он должен был «умереть» в Мире Грез от руки Галактического Рейнджера Ахерон, чтобы пробить брешь в иллюзии Семьи и заглянуть за кулисы настоящего Нашего Сна.</p>
+            <p>Внутри своего разрушающегося разума Авантюрин столкнулся с призраками своего прошлого — с самим собой в детстве (Какавачей) и со своей взрослой проекцией, которая издевательски спрашивала, ради чего он все еще дышит. Он был готов сделать свою последнюю ставку и исчезнуть в Небытии.</p>
+            <p>Но слова Рацио, его скрытая поддержка и то самое лекарство от «глупости» (а на самом деле — от экзистенциального одиночества), которое доктор прописал ему в своей записке, заставили Авантюрина выбрать жизнь. Он принял свое прошлое, простил себя за то, что выжил, и сумел вернуться из Бездны.</p>
+
+            <div class="card-decorator"><div class="chip">◆</div></div>
+
+            <h2>Эпилог: Следующий бросок костей</h2>
+            <p>Авантюрин покинул Пенаконию измененным. На его шее все еще горит клеймо раба, а в руках — осколок авантюринового камня, но его взгляд стал спокойнее.</p>
+            <p>Он по-прежнему готов ставить все на зеро. Но теперь, когда за его спиной стоит один невыносимо ворчливый, но надежный доктор в гипсовой маске, готовый в любой момент отчитать его за глупость, Авантюрин играет не ради того, чтобы наконец проиграть свою жизнь. Теперь он играет, чтобы побеждать.</p>
+            
+            <div class="quote-block" style="border-style: solid; background: rgba(212, 179, 115, 0.05);">
+                <p style="font-size: 1.3rem; text-align: center; font-style: normal; letter-spacing: 1px;">«Крутите барабан, господа. Мой ход еще не окончен».</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="footer-decor">◇ ◇ ◆ ◇ ◇</div>
+        <p>© 2026 Корпорация Межзвездного Мира (КММ). Департамент стратегических инвестиций. Все права защищены.</p>
+    </footer>
+
+    <!-- СКРИПТ ПЕРЕКЛЮЧЕНИЯ СТРАНИЦ -->
+    <script>
+        function switchPage(pageId, button) {
+            // Скрываем все страницы
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Убираем активный класс у кнопок
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Показываем нужную страницу и делаем кнопку активной
+            document.getElementById(pageId).classList.add('active');
+            button.classList.add('active');
+
+            // Скроллим вверх при переключении
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
