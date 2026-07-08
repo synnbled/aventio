@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авантюрин & Рацио // Истинная ставка</title>
+    <style>
+        /* --- КИНЕМАТОГРАФИЧНЫЙ И ДРАМАТИЧЕСКИЙ СТИЛЬ ХСР --- */
+        :root {
+            --bg-dark: #06090e;
+            --bg-card: rgba(15, 23, 36, 0.85);
+            --gold-primary: #f3d082;
+            --gold-glow: #fff1ce;
+            --romantic-rose: #ff3366;
+            --text-light: #f8fafc;
+            --text-muted: #64748b;
+            --border-line: rgba(243, 208, 130, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(20, 110, 120, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 15% 75%, rgba(255, 51, 102, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* --- ШАПКА И НАВИГАЦИЯ --- */
+        header {
+            background: rgba(6, 9, 14, 0.9);
+            border-bottom: 1px solid rgba(243, 208, 130, 0.25);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--romantic-rose);
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px var(--romantic-rose);
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--gold-primary);
+        }
+
+        .nav-btn.active {
+            border: 1px solid var(--gold-primary);
+            background: rgba(243, 208, 130, 0.05);
+        }
+
+        /* --- ОСНОВНОЙ БЛОК --- */
+        main {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            min-height: calc(100vh - 280px);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            color: #fff;
+            border-left: 3px solid var(--romantic-rose);
+            padding-left: 15px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin: 2.5rem 0 1rem 0;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .status-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--romantic-rose);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: bold;
+        }
+
+        .heart-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 2.5rem 0;
+        }
+
+        .heart-line::before, .heart-line::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-line), transparent);
+        }
+
+        .heart-icon {
+            color: var(--romantic-rose);
+            font-size: 1rem;
+            text-shadow: 0 0 8px var(--romantic-rose);
+        }
+
+        /* КАРТОЧКА ОТКРОВЕНИЯ */
+        .revelation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-line);
+            border-left: 4px solid var(--romantic-rose);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        .revelation-card em {
+            color: var(--gold-glow);
+            font-style: italic;
+        }
+
+        .dialogue-box {
+            background: rgba(6, 9, 14, 0.6);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            border-right: 2px solid var(--gold-primary);
+        }
+
+        .dialogue-line {
+            font-style: italic;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+        }
+
+        .dialogue-author {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            text-align: right;
+            letter-spacing: 1px;
+        }
+
+        .cinematic-quote {
+            font-family: 'Georgia', serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #fff;
+            text-align: center;
+            max-width: 650px;
+            margin: 3.5rem auto;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 51, 102, 0.2);
+            border-bottom: 1px solid rgba(255, 51, 102, 0.2);
+        }
+
+        footer {
+            border-top: 1px solid rgba(243, 208, 130, 0.1);
+            padding: 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5rem;
+            letter-spacing: 1px;
+            background: #030508;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-dot"></div>
+                Honkai: Star Rail // Безрассудная привязанность
+            </div>
+            <nav>
+                <button class="nav-btn active" onclick="switchPage('page1', this)">Сквозь маски</button>
+                <button class="nav-btn" onclick="switchPage('page2', this)">Вспышка в темноте</button>
+                <button class="nav-btn" onclick="switchPage('page3', this)">Единственное «Зачем»</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- СТРАНИЦА 1 -->
+        <section id="page1" class="page active">
+            <span class="status-tag">Психологический срез // Пенакония</span>
+            <h1>Двое против теории вероятности</h1>
+            
+            <p>С самого начала их «союз» на Пенаконии выглядел безупречно разыгранной партией. Топ-менеджер КММ, привыкший прятать за сиянием фальшивого золота свой суицидальный синдром выжившего, и высокомерный Доктор Рацио, презирающий чужую глупость. Они кололи друг друга шпильками, спорили и разыгрывали перед Семьей вражду. Но за этим скрывалось то, что оба отчаянно пытались проигнорировать — болезненное, ломающее все их защитные барьеры притяжение.</p>
+            
+            <p>Рацио читал Авантюрина как открытую книгу. Он видел, что за маской вальяжного игрока прячется сломленный сигонийский мальчик, который намеренно ищет собственную смерть под видом «великой ставки». И Рацио это бесило. Не потому, что это вредило планам Корпорации, а потому, что мысль о гибели Авантюрина вызывала у него глухую, нерациональную панику. Именно поэтому он, вопреки всей своей хваленой логике, пошел на огромный риск ради спасения этого невыносимого авджина.</p>
+
+            <div class="dialogue-box">
+                <div class="dialogue-line">«Ты думаешь, что твоя жизнь — это просто фишка, которую можно швырнуть на зеро, Авантюрин? Прекрати вести себя как идиот. Твоя удача не должна быть твоим саваном».</div>
+                <div class="dialogue-author">— Веритас Рацио (из скрытых записей разговоров)</div>
+            </div>
+
+            <p>Авантюрин же ловил каждый строгий взгляд доктора. Для человека, которого всю жизнь предавали, использовали и продавали в рабство, суровая, не требующая ничего взамен забота Рацио стала медленным ядом. Ядом, который заставил его сердце биться по-настоящему.</p>
+        </section>
+
+        <!-- СТРАНИЦА 2 -->
+        <section id="page2" class="page">
+            <span class="status-tag">Точка невозврата // Предсмертное озарение</span>
+            <h1>Осознание на краю Небытия</h1>
+            
+            <p>Когда клинок Ахерон обрушился на Авантюрина, разрушая саму концепцию сна, он полетел вниз — в ледяную, удушающую пустоту Небытия. Это был тот самый момент. Секунда до того, как его разум окончательно растворится, а эхо прошлого сотрется. Золотая броня КММ исчезла, фишки рассыпались прахом. Он остался один на один со своей скорой смертью.</p>
+
+            <div class="revelation-card">
+                <h2>Вспышка перед глазами</h2>
+                <p>В этот последний, предсмертный миг Авантюрин не вспомнил ни Сигонию, ни свои миллиарды. В его замерзающем сознании вспыхнуло лицо Рацио — то самое выражение лица доктора перед их расставанием. Не маска презрения, а тщательно скрываемый, отчаянный страх потерять его. И медицинская записка-рецепт, оставленная Рацио, которую Авантюрин до последнего сжимал в кармане у сердца.</p>
+                <p>Именно там, умирая в кромешной тьме, Авантюрин наконец перестал врать самому себе. <em>«Вот оно что. Я ведь люблю его. По-настоящему, до дрожи, так, как никогда никого не любил».</em> Это не было сухой привязанностью — это было осознание, что Веритас Рацио стал его единственным якорем в этой вселенной. И самое страшное — Авантюрин понял, что Рацио тоже любит его. Что вся эта грубость доктора была лишь попыткой удержать его на краю пропасти.</p>
+            </div>
+
+            <p>Осознание того, что его любят, и что он сам безумно влюблен, обожгло Авантюрина сильнее любого оружия. Ему стало невыносимо, дико жаль. Жаль, что он понял это только сейчас, когда бездна уже смыкалась над головой, лишая возможности вернуться и просто коснуться руки доктора без дурацких шуток и фальшивых улыбок.</p>
+        </section>
+
+        <!-- СТРАНИЦА 3 -->
+        <section id="page3" class="page">
+            <span class="status-tag">Финал // Выигранная жизнь</span>
+            <h1>Причина, чтобы дышать</h1>
+            
+            <p>Небытие шептало Авантюрину: «Сдайся. Твой путь окончен, ты устал бороться». Призраки его погибшей семьи манили его в вечный покой. Он был готов закрыть глаза. Но образ Рацио, оставшегося там, на Пенаконии, ждущего исхода его безумной игры, заставил его душу буквально взбунтоваться против смерти.</p>
+            
+            <p>Любовь, которую он так долго не решался признать, превратилась в яростное желание выжить. Он не имел права умереть здесь и оставить Веритаса одного. Рацио прописал ему в своей записке: «Не умри». И Авантюрин, всю жизнь плевавший на приказы, впервые решил подчиниться.</p>
+
+            <div class="heart-line">
+                <div class="heart-icon">♥</div>
+            </div>
+
+            <p>Он выкарабкался из Бездны вопреки законам логики, изломанный, с расколотым Камнем, но живой. И когда он впервые открыл глаза в реальном мире, его первой мыслью был не триумф КММ. Он знал, что впереди долгий путь, и доктор наверняка снова встретит его ворчанием и лекциями об эрудиции. Но теперь Авантюрину было плевать. Он знал правду.</p>
+
+            <div class="cinematic-quote">
+                «Я всю жизнь играл со смертью, потому что мне нечего было терять, Веритас. Но теперь... теперь я готов перевернуть всю Вселенную, лишь бы возвращаться к тебе после каждого броска костей».
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>✦ Ставка принята. Любовь не подчиняется расчетам ✦</div>
+        <p>© 2026 Департамент Стратегических Инвестиций КММ. Изъято из личных воспоминаний Авантюрина.</p>
+    </footer>
+
+    <script>
+        function switchPage(pageId, button) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(pageId).classList.add('active');
+            button.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
