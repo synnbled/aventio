@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авантюрин & Рацио | Осознание в Небытии</title>
+    <title>Авантюрин & Рацио | Официальный Канон КММ</title>
     <style>
-        /* --- КИНЕМАТОГРАФИЧНЫЙ СТИЛЬ ПЕНАКОНИИ & КММ --- */
+        /* --- ОФИЦИАЛЬНЫЙ РОМАНТИЧЕСКИЙ СТИЛЬ КММ & ПЕНАКОНИИ --- */
         :root {
-            --bg-dark: #05070a;
-            --bg-card: rgba(13, 20, 30, 0.8);
+            --bg-dark: #070b11;
+            --bg-card: rgba(18, 28, 38, 0.75);
             --gold-primary: #f0c975;
             --gold-glow: #ffe8ad;
             --teal-accent: #00f3ff;
             --romantic-rose: #ff4a76;
             --text-light: #f1f5f9;
-            --text-muted: #64748b;
-            --border-gold: rgba(240, 201, 117, 0.25);
+            --text-muted: #94a3b8;
+            --border-gold: rgba(240, 201, 117, 0.3);
         }
 
         * {
@@ -30,8 +30,8 @@
             font-family: 'Segoe UI', Roboto, sans-serif;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 70% 20%, rgba(15, 118, 110, 0.25) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(255, 74, 118, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 70% 30%, rgba(22, 78, 67, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 30% 85%, rgba(255, 74, 118, 0.12) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -39,18 +39,18 @@
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(240, 201, 117, 0.01) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(240, 201, 117, 0.01) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background: linear-gradient(rgba(240, 201, 117, 0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(240, 201, 117, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* --- НАВИГАЦИЯ --- */
+        /* --- ХЕДЕР И НАВИГАЦИЯ --- */
         header {
-            background: rgba(5, 7, 10, 0.9);
-            border-bottom: 1px solid rgba(240, 201, 117, 0.3);
-            backdrop-filter: blur(16px);
+            background: rgba(7, 11, 17, 0.85);
+            border-bottom: 2px solid var(--gold-primary);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -58,7 +58,7 @@
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -67,39 +67,40 @@
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 5px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: 4px;
             color: var(--gold-primary);
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-icon {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background: var(--romantic-rose);
             transform: rotate(45deg);
-            box-shadow: 0 0 10px var(--romantic-rose);
+            box-shadow: 0 0 12px var(--romantic-rose);
         }
 
         nav {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
         .nav-btn {
             background: transparent;
             border: 1px solid transparent;
             color: var(--text-muted);
-            padding: 0.6rem 1.4rem;
-            font-size: 0.8rem;
+            padding: 0.6rem 1.6rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
         .nav-btn:hover, .nav-btn.active {
@@ -108,138 +109,199 @@
 
         .nav-btn.active {
             border: 1px solid var(--gold-primary);
-            background: rgba(240, 201, 117, 0.05);
+            background: rgba(240, 201, 117, 0.08);
+        }
+
+        .nav-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 50%; transform: translateX(-50%);
+            width: 50%; height: 2px;
+            background: linear-gradient(90deg, var(--teal-accent), var(--romantic-rose));
+            box-shadow: 0 0 10px var(--teal-accent);
         }
 
         /* --- КОНТЕНТ --- */
         main {
-            max-width: 850px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-            min-height: calc(100vh - 250px);
+            max-width: 950px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            min-height: calc(100vh - 260px);
         }
 
         .page {
             display: none;
-            animation: fadeIn 0.6s ease forwards;
+            animation: slideUp 0.5s ease forwards;
         }
 
         .page.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 2.3rem;
+            font-size: 2.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            background: linear-gradient(135deg, #fff 40%, var(--gold-primary) 100%);
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--gold-primary) 30%, #fff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--romantic-rose);
-            padding-left: 15px;
+            border-left: 5px solid var(--romantic-rose);
+            padding-left: 20px;
         }
 
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             color: var(--gold-primary);
-            margin: 2.5rem 0 1.2rem 0;
-            letter-spacing: 1px;
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '♥';
+            color: var(--romantic-rose);
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px var(--romantic-rose);
         }
 
         p {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
             margin-bottom: 1.5rem;
             text-align: justify;
         }
 
-        .badge-status {
-            background: rgba(255, 74, 118, 0.1);
-            border: 1px solid rgba(255, 74, 118, 0.4);
-            color: var(--romantic-rose);
-            padding: 0.4rem 0.8rem;
-            display: inline-block;
-            font-size: 0.75rem;
+        .canon-status {
+            background: linear-gradient(90deg, rgba(255, 74, 118, 0.2), rgba(22, 78, 67, 0.2));
+            border: 1px solid var(--romantic-rose);
+            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 2rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(255, 74, 118, 0.15);
+        }
+
+        .intro-lead {
+            font-size: 1.25rem;
+            border: 1px solid var(--border-gold);
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 6px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .intro-lead::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--gold-primary), var(--romantic-rose));
         }
 
         .quote-block {
-            background: rgba(13, 20, 30, 0.6);
-            border-left: 3px solid var(--romantic-rose);
-            padding: 1.5rem;
-            margin: 2rem 0;
+            background: rgba(22, 78, 67, 0.2);
+            border-left: 3px solid var(--gold-primary);
+            border-right: 3px solid var(--romantic-rose);
+            padding: 1.8rem;
+            margin: 2.5rem 0;
+            border-radius: 4px;
             font-style: italic;
-            border-radius: 0 4px 4px 0;
         }
-
         .quote-block p {
             color: var(--gold-glow);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
-
         .quote-author {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             text-align: right;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .revelation-box {
-            background: linear-gradient(145deg, rgba(20, 15, 25, 0.9) 0%, rgba(10, 15, 25, 0.9) 100%);
-            border: 1px solid rgba(255, 74, 118, 0.2);
-            border-top: 3px solid var(--romantic-rose);
-            padding: 2rem;
+        .archive-box {
+            background: rgba(10, 14, 22, 0.9);
+            border: 1px solid var(--border-gold);
+            border-top: 3px solid var(--gold-primary);
+            padding: 1.8rem;
             margin: 2.5rem 0;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-family: 'Consolas', monospace;
+        }
+        .archive-title {
+            color: var(--teal-accent);
+            font-weight: bold;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding-bottom: 8px;
         }
 
-        .revelation-title {
-            color: var(--romantic-rose);
+        .detail-card {
+            background: linear-gradient(135deg, rgba(20,32,45,0.95) 0%, rgba(22,78,67,0.4) 100%);
+            border: 1px solid rgba(240, 201, 117, 0.2);
+            border-left: 4px solid var(--romantic-rose);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 4px;
+        }
+        .detail-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--romantic-rose), var(--gold-primary));
+            color: #fff;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            padding: 4px 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        .heart-dice {
+            display: flex;
+            justify-content: center;
+            margin: 4rem 0;
+            gap: 20px;
+        }
+        .dice-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(240, 201, 117, 0.2);
+            transform: rotate(15deg);
         }
-
-        .revelation-title::before {
-            content: '✦';
-        }
-
-        .final-words {
-            font-family: 'Georgia', serif;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #f8fafc;
-            text-align: center;
-            padding: 2rem 1rem;
-            border-top: 1px dashed rgba(240, 201, 117, 0.2);
-            border-bottom: 1px dashed rgba(240, 201, 117, 0.2);
-            margin: 3rem 0;
+        .dice-icon:nth-child(2) {
+            border-color: var(--romantic-rose);
+            color: var(--romantic-rose);
+            box-shadow: 0 0 15px rgba(255, 74, 118, 0.2);
+            transform: rotate(-15deg);
         }
 
         footer {
-            border-top: 1px solid rgba(240, 201, 117, 0.1);
-            padding: 2rem;
+            border-top: 1px solid rgba(240, 201, 117, 0.15);
+            padding: 2.5rem;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            margin-top: 5rem;
-            letter-spacing: 1px;
+            margin-top: 6rem;
+            background: #05080c;
         }
     </style>
 </head>
@@ -249,12 +311,12 @@
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon"></div>
-                Aventurine & Ratio // Последняя ставка
+                IPC • THE GOLDEN CANON
             </div>
             <nav>
-                <button class="nav-btn active" onclick="switchPage('page1', this)">Маска игрока</button>
-                <button class="nav-btn" onclick="switchPage('page2', this)">Шаг в бездну</button>
-                <button class="nav-btn" onclick="switchPage('page3', this)">Отречение и спасение</button>
+                <button class="nav-btn active" onclick="switchPage('page1', this)">Истоки судьбы</button>
+                <button class="nav-btn" onclick="switchPage('page2', this)">Осознание чувств</button>
+                <button class="nav-btn" onclick="switchPage('page3', this)">Победа любви</button>
             </nav>
         </div>
     </header>
@@ -262,57 +324,83 @@
     <main>
         <!-- СТРАНИЦА 1 -->
         <section id="page1" class="page active">
-            <div class="badge-status">Архив памяти: Пенакония</div>
-            <h1>Цена фальшивого блеска</h1>
+            <div class="canon-status">♥ Сюжетный Канон Подтвержден</div>
+            <h1>Авантюрин. Ставка на любовь</h1>
             
-            <p>Для всей Вселенной Авантюрин из Десяти Каменных Сердец КММ был идеальным воплощением азарта. Человек без прошлого, раб, купивший свою свободу ценой чужих жизней, циник, обвешанный золотом и фальшивыми улыбками. Он привык, что всё вокруг имеет свою цену, а люди — лишь фишки на игровом столе.</p>
-            
-            <p>Когда Корпорация отправила его на Пенаконию, он был готов к любому исходу. Миссия требовала его «смерти» ради победы КММ. Он шёл на этот риск с лёгким сердцем, потому что глубоко внутри давно презирал своё существование. Ему казалось, что его удача — это проклятие, оставляющее его в живых в полном одиночестве.</p>
-
-            <div class="quote-block">
-                <p>«Если ты можешь купить всё, значит, ничто не имеет настоящей ценности. Так какая разница, на что ставить в следующий раз?»</p>
-                <div class="quote-author">— Из личных заметок Авантюрина</div>
+            <div class="intro-lead">
+                Авантюрин из Honkai: Star Rail — не просто топ-менеджер КММ и один из Десяти Каменных Сердец. Он — человек, который превратил собственную жизнь в бесконечную игру в рулетку, где на кону всегда стояла его голова. Но истинный смысл этой игры раскрылся лишь тогда, когда он наконец открыто признался себе: то, что он испытывает к Доктору Рацио — это и есть любовь.
             </div>
 
-            <p>Но один человек нарушил эту идеальную математическую схему деструктивного безумия. Доктор Веритас Рацио. Мужчина, который не покупался на блеск фишек, презирал глупость и видел Авантюрина насквозь — со всей его гнилью, страхом и запрятанным глубоко внутри сигонийским мальчиком.</p>
+            <p>Ниже представлена развернутая история Авантюрина, оформленная в архивном, драматическом стиле Пенаконии и КММ, с деталями его сложного, но глубокого союза с Доктором Рацио.</p>
+
+            <h2>Часть 1: Рожденный в бурю (Какавача из Сигонии-IV)</h2>
+            <p>История Авантюрина начинается вовсе не в блеске золота КММ, а в мертвых, иссушенных пустынях планеты Сигония-IV. Там, среди вечной засухи и межплеменных войн, родился мальчик из племени авджинов, получивший имя Какавача.</p>
+
+            <div class="quote-block">
+                <p>«В день, когда ты родился, благословенный дождь пролился на Сигонию. Боги улыбнулись тебе, Какавача. Твоя удача — это твое величайшее благословение и твое самое тяжелое проклятие».</p>
+                <div class="quote-author">— Слова сестры Какавачи</div>
+            </div>
+
+            <p>Авджины славились своими удивительными, переливающимися глазами, которые чужаки считали признаком коварства, и феноменальным везением. Но удача Какавачи была особенной. Она не спасала его близких — она лишь оставляла его в живых, когда все остальные гибли. Какавача выжил, оставшись последним авджином во всей Вселенной. Но платой за выживание стало рабство. На арене гладиаторов он понял одну простую истину: жизнь — это казино, а чтобы выиграть у казино, нужно поставить на кон саму жизнь.</p>
         </section>
 
         <!-- СТРАНИЦА 2 -->
         <section id="page2" class="page">
-            <div class="badge-status">Критическая точка: Грань Небытия</div>
-            <h1>В шаге от вечного сна</h1>
+            <div class="canon-status">♥ Анализ Отношений КММ</div>
+            <h1>Когда логика встречает азарт</h1>
             
-            <p>Когда лезвие Галактического Рейнджера Ахерон рассекло ткань Мира Грез, Авантюрин рухнул. Это не была обычная смерть — это было падение в абсолютное Небытие, туда, откуда не возвращаются. И именно там, когда золотая маска Игрока разбилась вдребезги, а вокруг сомкнулась ледяная пустота, его сознание очистилось от вечной лжи.</p>
+            <h2>Часть 2: Смертник, ставший Камнем (Рождение Авантюрина)</h2>
+            <p>Какавача совершил невозможное — спланировал побег и попал в руки Корпорации Межзвездного Мира. Вместо смертной казни он предложил КММ свою удачу как главный актив.</p>
 
-            <div class="revelation-box">
-                <div class="revelation-title">Осознание на дне бездны</div>
-                <p>Перед тем как окончательно исчезнуть, Авантюрин не вспомнил ни золото КММ, ни жестокость Сигонии. Всё, что осталось в его замерзающем разуме — это тепло запечатанного медицинского рецепта, который Рацио отдал ему перед «предательством». Записка, которую он сжимал у самого сердца.</p>
-                <p>В этот предсмертный миг до него дошло. Это не было стратегическим партнерством. Это не было взаимной выгодой. Это была <strong>любовь</strong> — та самая, чистая, отчаянная и невозможная, в которую он, как раб и базарный торговец, никогда не верил. Он понял, что Веритас Рацио, со всей его грубостью и высокомерием, был единственным во вселенной, кто не хотел его смерти. Кто смотрел на него не как на Камень КММ, а как на живого человека, заслуживающего спасения.</p>
+            <div class="archive-box">
+                <div class="archive-title">[Архив КММ: Протокол назначения]</div>
+                <div><strong>Кодовое имя:</strong> Авантюрин.</div>
+                <div><strong>Камень-основа:</strong> Авантюрин хитрости.</div>
+                <div><strong>Девиз:</strong> «Все или ничего».</div>
             </div>
 
-            <p><em>«Так вот каково это...»</em> — подумал Авантюрин, чувствуя, как слезы закипают в его разноцветных глазах. — <em>«Я всю жизнь искал смерть, потому что думал, что никому не нужен. И понял, что меня любят, только когда стало слишком поздно».</em> Это осознание ударило сильнее, чем клинок Ахерон. Он полюбил доктора в ответ — открыто, безрассудно, всей своей изломанной душой, прямо там, на пороге вечного забвения.</p>
+            <p>Появился Авантюрин — блестящий, циничный, безупречно одетый стратег КММ. Он окружил себя роскошью, дорогими тканями и вечной фальшивой улыбкой, за которой скрывался все тот же испуганный сигонийский мальчик, искренне презирающий собственную жизнь. Так было до тех пор, пока в его жизни не появился Веритас Рацио.</p>
+
+            <h2>Часть 3: Золотая клетка Пенаконии и Ученый Эксцентрик</h2>
+            <p>Когда КММ решила вернуть Пенаконию, Авантюрин был отправлен туда в качестве авангарда. Для этой миссии Корпорация выделила ему временного напарника — Доктора Рацио из Гильдии Эрудитов.</p>
+            <p>Их диалоги на Пенаконии походили на интеллектуальный танец на минном поле. Рацио открыто называл Авантюрина «азартным безумцем», а Авантюрин в ответ лишь двусмысленно улыбался. Но за этим фасадом скрывалось нечто гораздо большее.</p>
+
+            <div class="detail-card">
+                <div class="detail-badge">Осознание: «Это и есть любовь»</div>
+                <p>Все считали их союз чисто деловым. Однако те, кто внимательно изучал отчеты, замечали странную закономерность. Авантюрин, славившийся тем, что никогда и никому не доверял, позволял Рацио подходить к себе ближе, чем кому-либо. Смотря на строгий, но полный скрытой тревоги взгляд доктора, Авантюрин впервые поймал себя на мысли, от которой перехватило дыхание: <em>«Вот оно что. Кажется, это и есть любовь... Самая настоящая».</em></p>
+                <p>Перед началом финального этапа игры, когда Рацио публично «предал» Авантюрина Семье (что на самом деле было частью их скрытого плана), Доктор передал ему запечатанную записку с медицинским рецептом. На оборотной стороне значилось: «Не умри до того, как я докажу твою неправоту». Авантюрин сохранил эту записку во внутреннем кармане пиджака, прямо у сердца. Его обычная маска фальшивого дружелюбия на мгновение спала, уступив место настоящей, мягкой улыбке, которую не видел ни один клиент КММ. Рацио, в свою очередь, вопреки своей привычке не тратить время на «безнадежных дураков», оставался на Пенаконии исключительно ради того, чтобы лично вытащить этого конкретного «дурака» с того света.</p>
+            </div>
         </section>
 
         <!-- СТРАНИЦА 3 -->
         <section id="page3" class="page">
-            <div class="badge-status">Эпилог: Возвращение ради него</div>
-            <h1>Выбор в пользу жизни</h1>
+            <div class="canon-status">♥ Эпилог Истинных Чувств</div>
+            <h1>По ту сторону небытия</h1>
             
-            <p>Небытие затягивало, предлагая самый легкий выход — сдаться, уснуть и прекратить эту бесконечную партию. Призраки прошлого тянули к нему руки. Но мысль о Рацио, о его невыносимом, строгом, но таком спасительном голосе, стала для Авантюрина маяком.</p>
-            
-            <p>Любовь, которую он наконец признал внутри себя, совершила невозможное. Она дала азартному смертнику причину бороться. Он не мог позволить себе умереть здесь, оставив доктора одного доказывать его неправоту. Он должен был вернуться. Ради того, чтобы снова увидеть этот хмурый взгляд. Ради того, чтобы хотя бы раз посмотреть на него без фальшивой улыбки и сказать правду.</p>
+            <h2>Часть 4: Спасительный маяк</h2>
+            <p>План Авантюрина на Пенаконии был грандиозен и ужасающе прост: он должен был «умереть» в Мире Грез от руки Галактического Рейнджера Ахерон, чтобы пробить брешь в иллюзии Семьи. Внутри своего разрушающегося разума Авантюрин столкнулся с призраками своего прошлого. Он был готов сделать свою последнюю ставку и исчезнуть в Небытии навсегда. Ему казалось, что его никто не ждет.</p>
+            <p>Но в самый темный момент, когда бездна уже готова была поглотить его, перед глазами встал образ Рацио. Слова доктора, его скрытая поддержка и то самое «лекарство от глупости», которое Веритас прописал ему в своей записке, зажглись в его сознании ярким неоновым светом. Авантюрин вспомнил теплоту их редких честных мгновений и окончательно осознал: он безумно, отчаянно влюблен, и эта любовь взаимна. Это понимание заставило его выбрать жизнь. Он принял свое прошлое, простил себя за то, что выжил, и сумел вернуться из Бездны — потому что теперь у него был тот, к кому хотелось возвращаться.</p>
 
-            <div class="final-words">
-                «Я всегда ставил на кон свою жизнь, Веритас. Но теперь я впервые хочу эту ставку выиграть. Не ради Корпорации. Ради тебя».
+            <div class="heart-dice">
+                <div class="dice-icon">🎲</div>
+                <div class="dice-icon">♥</div>
             </div>
 
-            <p>Когда Авантюрин открыл глаза по ту сторону барьера Пенаконии, он был истощен, его камень был расколот, а тело едва слушалось. Но внутри больше не было пустоты. Перевернув фишку в пальцах, он впервые улыбнулся искренне, зная: самая главная ставка в его жизни наконец-то сыграла.</p>
+            <h2>Эпилог: Следующий бросок костей</h2>
+            <p>Авантюрин покинул Пенаконию измененным. На его шее все еще горит клеймо раба, а в руках — осколок авантюринового камня, но его взгляд стал спокойнее.</p>
+            <p>Он по-прежнему готов ставить все на зеро. Но теперь, когда за его спиной стоит один невыносимо ворчливый, но надежный доктор в гипсовой маске, готовый в любой момент отчитать его за глупость, Авантюрин играет не ради того, чтобы наконец проиграть свою жизнь. Теперь он играет, чтобы побеждать и проживать эту жизнь вместе с любимым человеком.</p>
+            
+            <div class="quote-block" style="border: 2px solid var(--romantic-rose); background: rgba(255, 74, 118, 0.05);">
+                <p style="font-size: 1.35rem; text-align: center; font-style: normal; letter-spacing: 1px; color: #fff;">
+                    «Крутите барабан, господа. Мой ход еще не окончен, ведь теперь мне есть ради кого жить».
+                </p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <div>✦ Смерти нет, пока нас кто-то помнит ✦</div>
-        <p>© 2026 Департамент Стратегических Инвестиций КММ. Личный архив под грифом "Совершенно секретно".</p>
+        <div class="footer-decor">♥ ◇ ♥ ◆ ♥ ◇ ♥</div>
+        <p>© 2026 Корпорация Межзвездного Мира (КММ). Официально подтвержденный архив Департамента Стратегических Инвестиций.</p>
     </footer>
 
     <script>
